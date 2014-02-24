@@ -25,7 +25,8 @@ var Db = require('mongodb').Db,
     BSON = require('mongodb').pure().BSON,
     assert = require('assert');
 
-
+console.log(request.connection.remoteAddress);
+exit;
 var db = new Db('app22495549', new Server("troup.mongohq.com", 10055,
  {auto_reconnect: false, poolSize: 4}), {w:0, native_parser: false});
 

@@ -8,8 +8,7 @@ angular.module('myApp', [
   'myApp.services',
   'myApp.directives',
   'ui.keypress',
-  "ngRoute",
-  "ngSanitize"
+  "ngRoute"
 ]).
 config(function ($routeProvider, $locationProvider) {
   $routeProvider.

@@ -20,7 +20,7 @@ block body
             a(href="#c3") c3
   div(ng-controller="AppCtrl",class="container")
     h2(ng-cloak) Hello {{user.name}}
-    p There are {{connector}} person(s) connecting to the server
+    p(ng-cloak) There are {{connector}} person(s) connecting to the server
     ul.menu
       li
         a(href='config') config
@@ -37,9 +37,8 @@ block body
 
   script(src="/socket.io/socket.io.js")
   script(src='//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js')
-  script(src='js/lib/angular/angular.js')
-  script(src='js/lib/angular/angular-sanitize.js')
-  script(src='js/lib/angular/angular-route.js')
+  script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js')
+  script(src='//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.min.js')
   script(src='js/app.js')
   script(src='js/services.js')
   script(src='js/controllers.js')
