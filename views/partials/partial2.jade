@@ -1,0 +1,7 @@
+p This is the chatroom without db.
+.row.container
+  .form-group
+    textarea(chatbox,ui-keypress="{13:'send($event)'}",class="form-control",ng-model="msg",placeholder="Your message here, press enter to send, shift + enter to change line")
+.well.chatroom
+  ul(ng-repeat="msg in chatroom.msgs track by $index") 
+    p(style="white-space: pre-wrap;word-wrap:break-word")  {{ msg}}

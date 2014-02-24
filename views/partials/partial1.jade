@@ -1,0 +1,13 @@
+p Chat configuration
+form(class="form-horizontal")
+  .form-group
+    label(class="col-sm-2 control-label",for="id") Id
+    .col-sm-10 
+      input(ng-model="socket.id",id="id",class="form-control",disabled="disabled")
+        {{socket.id}}
+  .form-group
+    label(class="col-sm-2 control-label",for="name") Name
+    .col-sm-10
+      input(ng-model="user.name",id="name",class="form-control",placeholder="Your nickname")
+  .col-sm-offset-2  
+    button(class="btn btn-default",ng-click="update()") Update

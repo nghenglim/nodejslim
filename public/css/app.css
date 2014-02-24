@@ -1,0 +1,241 @@
+[ng\:cloak], [ng-cloak], .ng-cloak { display: none; }
+/* Move down content because we have a fixed navbar that is 50px tall */
+body {
+  padding-top: 40px;
+}
+.chatroom{
+  height:400px;
+  overflow-y:scroll;
+}
+/* fix obscured by navbar problem */
+a[name] {
+  padding-top: 40px;
+  margin-top: -40px;
+  display: inline-block; /* required for webkit browsers */
+}
+ul.check-list li{
+  font-size: 23px;
+}
+.margin-s{
+  margin:5px;
+}
+.nowrap{
+   white-space: nowrap;
+}
+.pointer {
+   cursor: pointer;
+}
+.form-custom {
+  margin: 0 auto;
+  max-width:360px;
+}
+.form-custom .form-custom-heading,
+.form-custom .checkbox {
+  margin-bottom: 10px;
+}
+.form-custom .checkbox {
+  font-weight: normal;
+}
+.form-custom .form-control {
+  position: relative;
+  font-size: 16px;
+  height: auto;
+  padding: 10px;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.map{
+    width: 100%;
+    height: 400px;
+    border: 1px solid #000;
+    margin-bottom: 20px;
+}
+#top-bar .fa{
+  font-size:18px;
+}
+#top-bar a .fa:hover{
+  top: 0px;
+}
+#top-bar a.nav-brand{
+  background:url(../img/favicon.gif) no-repeat left bottom;
+  background-size: 30px 30px;
+  font-size:25px;
+  padding:0;
+  margin:0;
+}
+#top-bar a.nav-brand .fa{
+  padding-left:30px;
+  color:#00e219;
+}  
+#top-bar .nav-brand .fa{font-size:31px;}
+.fa-google-plus-square{
+  color:#d34836;
+}
+.fa-facebook-square{
+  color:#3b5998;
+}
+.fa-tumblr-square{
+  color:#34526f;
+}
+.fa-twitter-square{
+  color:#00a0d1;
+}
+td .form-group{
+  margin-right: 5px;
+}
+h1,h2,label,th,.panel-heading{
+  text-transform : capitalize;
+}
+div.remember {
+  margin-top: 7px;
+  color: #969696;
+}
+
+div.remember label {
+  padding-top: 15px;
+}
+
+div.forgot {
+  margin-top: 7px;
+  color: #dadada;
+}
+
+footer {
+    background: url("../img/feature-gradient.png") no-repeat scroll center 100% white;
+    color: #B7B7B7;
+    font-size: 12px;
+    padding: 30px 0;
+    text-align: center;
+}
+footer a {
+    margin:0 10px 0 10px;
+}
+footer .select2 {
+  margin:0 10px 0 10px;
+}
+footer a.select2-choice{
+  margin:0;
+}
+table.signup td {
+  padding: 10px;
+}
+
+table.signup .alert {
+  margin-bottom: 0;
+    margin-top: 3px;
+}
+
+table.perms select {
+  margin-top: 5px;
+  margin-right: 10px;
+}
+
+table.perms label {
+  margin-right: 10px;
+}
+
+div.main-container {
+  min-height: 450px;
+}
+#top-nav ul li.active{
+  background: #eee;  
+}
+/* CUSTOMIZE THE CAROUSEL
+-------------------------------------------------- */
+
+/* Carousel base class */
+.carousel {
+  height: 500px;
+}
+/* Since positioning the image, we need to help out the caption */
+.carousel-caption {
+  z-index: 10;
+}
+
+/* Declare heights because of positioning of img element */
+.carousel .item {
+  height: 500px;
+  background-color: #777;
+}
+.carousel-inner > .item > img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  min-width: 100%;
+  height: 500px;
+}
+.carousel-control {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 15%;
+  font-size: 20px;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.6);
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+}
+
+.carousel-control.left {
+  background-image: none;
+}
+
+.carousel-control.right {
+  background-image: none;
+}
+.carousel-caption{
+
+}
+@media (max-width: 768px) {
+.form-horizontal .messages{
+  clear:left;
+}
+.form-horizontal .messages{
+  padding-top: 7px;
+  margin:0 0 0 15px;
+}
+.form-horizontal .messages .alert{
+  margin-left: -15px;
+}
+#top-bar a.nav-brand{
+  margin-left:15px;  
+}
+}
+@media (min-width: 769px) {
+  #top-nav ul{
+    float:right;  
+  }
+}
+/* app css stylesheet */
+
+.menu {
+  list-style: none;
+  border-bottom: 0.1em solid black;
+  margin-bottom: 2em;
+  padding: 0 0 0.5em;
+}
+
+.menu:before {
+  content: "[";
+}
+
+.menu:after {
+  content: "]";
+}
+
+.menu > li {
+  display: inline;
+}
+
+.menu > li:before {
+  content: "|";
+  padding-right: 0.3em;
+}
+
+.menu > li:nth-child(1):before {
+  content: "";
+  padding: 0;
+}

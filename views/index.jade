@@ -1,0 +1,48 @@
+extends layout
+
+block body
+  div(id="top-bar",class="navbar navbar-default navbar-fixed-top",role="navigation")
+    .container
+      .navbar-header
+        a(class="nav-brand",href="#") nodejslim
+        button(type="button",class="navbar-toggle",data-toggle="collapse",data-target=".navbar-collapse")
+        span(class="sr-only") Toggle navigation
+        span(class="icon-bar")
+        span(class="icon-bar")
+        span(class="icon-bar")
+      div(id="top-nav",class="navbar-collapse collapse")
+        ul(class="nav navbar-nav")
+          li
+            a(href="#c1") c1
+          li
+            a(href="#c2") c2
+          li
+            a(href="#c3") c3
+  div(ng-controller="AppCtrl",class="container")
+    h2(ng-cloak) Hello {{user.name}}
+    p There are {{connector}} person(s) connecting to the server
+    ul.menu
+      li
+        a(href='config') config
+      li
+        a(href='chatroom') chatroom
+      li
+        a(href='mongochat') mongochat
+
+    div(ng-view)
+
+    div
+      | Angular seed app: v
+      span(app-version)
+
+  script(src="/socket.io/socket.io.js")
+  script(src='//netdna.bootstrapcdn.com/bootstrap/3.0.3/js/bootstrap.min.js')
+  script(src='js/lib/angular/angular.js')
+  script(src='js/lib/angular/angular-sanitize.js')
+  script(src='js/lib/angular/angular-route.js')
+  script(src='js/app.js')
+  script(src='js/services.js')
+  script(src='js/controllers.js')
+  script(src='js/filters.js')
+  script(src='js/directives.js')
+  script(src='js/modules/keypress/keypress.js')
