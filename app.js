@@ -116,7 +116,7 @@ db.open(function(err, db) {
       socket.on('init:mongochat', function () {
         var collection = db.collection("mongochat");
         collection.find({},{msg:1,_id:0}).limit(100).toArray(function(err, results){
-          io.sockets.emit('init:mongochat', {
+          socket.emit('init:mongochat', {
             msgs: results
           });
             // console.log(results); // output all records
