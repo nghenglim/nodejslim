@@ -2,7 +2,6 @@
 /**
  * Module dependencies
  */
-
 var express = require('express'),
   routes = require('./routes'),
   api = require('./routes/api'),
@@ -26,7 +25,8 @@ var Db = require('mongodb').Db,
     BSON = require('mongodb').pure().BSON,
     assert = require('assert');
 
-var db = new Db('integration_tests', new Server("127.0.0.1", 27017,
+
+var db = new Db('app22495549', new Server("troup.mongohq.com", 10055,
  {auto_reconnect: false, poolSize: 4}), {w:0, native_parser: false});
 
 /**
@@ -83,51 +83,53 @@ var numUsers = 0;
 db.open(function(err, db) {
   assert.equal(null, err);
   assert.ok(db != null);
-  io.sockets.on('connection', function (socket) {
-    nicknames[socket.id]='Guest';
-    socket.nickname='Guest';
-    numUsers++;
-    io.sockets.emit("count connection", {count: numUsers });
-    socket.emit("socket config", {id: socket.id});
-    socket.on('disconnect', function() {
-      delete nicknames[socket.id];
-      numUsers--;
-      socket.broadcast.emit("count connection", {count: numUsers });
-      // db.close();
-    });
-    socket.on('update:config', function (data) {
-      if(socket.nickname != data.config.name){
-        // add the client's nickname to the global list
-        nicknames[socket.id] = data.config.name;
-        // echo globally (all clients) that a person has connected
-        socket.broadcast.emit('nickname changed', {
-          msg: socket.nickname + "(id: " + socket.id + ") has changed nickname to " + data.config.name
-        }); 
-        socket.nickname = data.config.name;
-      }
-    });
-    socket.on('send:msg', function (data) {
-      var message=socket.nickname + " say: \n" + data.msg;
-      io.sockets.emit('receive:msg', {
-        msg: message
-      }); 
-    });
-    socket.on('init:mongochat', function () {
-      var collection = db.collection("mongochat");
-      collection.find({},{msg:1,_id:0}).limit(100).toArray(function(err, results){
-        io.sockets.emit('init:mongochat', {
-          msgs: results
-        });
-          // console.log(results); // output all records
+  db.authenticate('lim', 'nodejslim', function(err, result) {
+    io.sockets.on('connection', function (socket) {
+      nicknames[socket.id]='Guest';
+      socket.nickname='Guest';
+      numUsers++;
+      io.sockets.emit("count connection", {count: numUsers });
+      socket.emit("socket config", {id: socket.id});
+      socket.on('disconnect', function() {
+        delete nicknames[socket.id];
+        numUsers--;
+        socket.broadcast.emit("count connection", {count: numUsers });
+        // db.close();
       });
-    });
-    socket.on('send:mongomsg', function (data) {
-      var message=socket.nickname + " say: \n" + data.msg;
-      var collection = db.collection("mongochat");
-      collection.insert( { msg: message } );
-      io.sockets.emit('receive:mongomsg', {
-        msg: message
-      }); 
+      socket.on('update:config', function (data) {
+        if(socket.nickname != data.config.name){
+          // add the client's nickname to the global list
+          nicknames[socket.id] = data.config.name;
+          // echo globally (all clients) that a person has connected
+          socket.broadcast.emit('nickname changed', {
+            msg: socket.nickname + "(id: " + socket.id + ") has changed nickname to " + data.config.name
+          }); 
+          socket.nickname = data.config.name;
+        }
+      });
+      socket.on('send:msg', function (data) {
+        var message=socket.nickname + " say: \n" + data.msg;
+        io.sockets.emit('receive:msg', {
+          msg: message
+        }); 
+      });
+      socket.on('init:mongochat', function () {
+        var collection = db.collection("mongochat");
+        collection.find({},{msg:1,_id:0}).limit(100).toArray(function(err, results){
+          io.sockets.emit('init:mongochat', {
+            msgs: results
+          });
+            // console.log(results); // output all records
+        });
+      });
+      socket.on('send:mongomsg', function (data) {
+        var message=socket.nickname + " say: \n" + data.msg;
+        var collection = db.collection("mongochat");
+        collection.insert( { msg: message } );
+        io.sockets.emit('receive:mongomsg', {
+          msg: message
+        }); 
+      });
     });
   });
 });
