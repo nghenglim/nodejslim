@@ -24,9 +24,16 @@ var Db = require('mongodb').Db,
     Code = require('mongodb').Code,
     BSON = require('mongodb').pure().BSON,
     assert = require('assert');
-    
-var db = new Db('app22495549', new Server("troup.mongohq.com", 10055,
- {auto_reconnect: false, poolSize: 4}), {w:0, native_parser: false});
+  
+
+var os = require("os");
+if(os.hostname()=="Lim-PC"){  
+  var db = new Db('app22495549', new Server("127.0.0.1", 27017,
+  {auto_reconnect: false, poolSize: 4}), {w:0, native_parser: false});
+}else{
+  var db = new Db('app22495549', new Server("troup.mongohq.com", 10055,
+   {auto_reconnect: false, poolSize: 4}), {w:0, native_parser: false});
+}
 
 /**
  * Configuration
