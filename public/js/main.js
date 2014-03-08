@@ -1,4 +1,5 @@
 requirejs.config({
+	waitSeconds: 200,
 	paths: {
 		angular: 'lib/angular/angular',
 		angularRoute: 'lib/angular/angular-route',
