@@ -1,4 +1,5 @@
-'use strict';
+define(['angular'], function(angular){
+  'use strict';
  
 var app = angular.module('Application', ['ngResource']);
  
@@ -9,4 +10,5 @@ app.factory('UserFactory', function($resource){
 app.controller('MainCtrl', function($scope, UserFactory) {
     $scope.text = 'Hello World!';
     // $scope.users = UserFactory.get();
+});
 });

@@ -1,4 +1,5 @@
-'use strict';
+define(['angular'], function(angular){
+  'use strict';
 
 angular.module('ui.keypress',[]).
 factory('keypressHelper', ['$parse', function keypress($parse){
@@ -114,3 +115,4 @@ angular.module('ui.keypress').directive('uiKeyup', ['keypressHelper', function(k
     }
   };
 }]);
+});

@@ -1,8 +1,9 @@
-'use strict';
+define(['angular'], function(angular){
+    'use strict';
 
 /* Directives */
 
-angular.module('myApp.directives', []).
+return angular.module('myApp.directives', []).
   directive('appVersion', function (version) {
     return function(scope, elm, attrs) {
       elm.text(version);
@@ -62,3 +63,4 @@ angular.module('myApp.directives', []).
         }
     }
 });;
+});

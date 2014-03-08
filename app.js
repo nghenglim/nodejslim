@@ -125,7 +125,6 @@ db.open(function(err, db) {
           socket.emit('init:mongochat', {
             msgs: results
           });
-            // console.log(results); // output all records
         });
       });
       socket.on('send:mongomsg', function (data) {

@@ -1,4 +1,5 @@
-'use strict';
+define(['angular'], function(angular){
+  'use strict';
 
 /* Services */
 
@@ -29,4 +30,5 @@ myModule.factory('socket', function ($rootScope) {
       })
     }
   };
+});
 });

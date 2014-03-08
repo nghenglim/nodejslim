@@ -1,9 +1,10 @@
-'use strict';
+define(['angular','services'], function (angular) {
+  'use strict';
 
 /* Controllers */
 
-angular.module('myApp.controllers', []).
-  controller('AppCtrl', function ($scope, $http, socket) {
+return angular.module('myApp.controllers', ['myApp.services']).
+  controller('AppCtrl', ['$scope', '$http', 'socket', function ($scope, $http, socket) {
     $scope.user={name:''};
     $scope.chatroom={msgs:[],users:[]};
     $scope.mongochat={msgs:[],users:[]};
@@ -39,8 +40,7 @@ angular.module('myApp.controllers', []).
     error(function (data, status, headers, config) {
       $scope.user.name = 'Error!'
     });
-
-  }).
+  }]).
   controller('MyCtrl1', function ($scope,socket) {
     $scope.update = function () {
       socket.emit("update:config",{config: $scope.user});
@@ -65,3 +65,4 @@ angular.module('myApp.controllers', []).
       $event.preventDefault();
     }
   });
+});
