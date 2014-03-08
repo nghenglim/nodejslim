@@ -13,6 +13,7 @@ block body
       div(id="top-nav",class="navbar-collapse collapse")
   div(ng-controller="AppCtrl",class="container")
     h2(ng-cloak) Hello {{user.name}}
+    p(ng-if="1=1") Please wait while Javascript files are loading...
     p(ng-cloak) There are {{connector}} person(s) connecting to the server
     ul.menu
       li
