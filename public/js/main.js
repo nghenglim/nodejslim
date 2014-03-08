@@ -1,8 +1,8 @@
 requirejs.config({
 	waitSeconds: 200,
 	paths: {
-		'angular': ['//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min.js','lib/angular/angular'],
-		'angularRoute': ['//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.min.js','lib/angular/angular-route'],
+		'angular': ['//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular.min','lib/angular/angular'],
+		'angularRoute': ['//ajax.googleapis.com/ajax/libs/angularjs/1.2.8/angular-route.min','lib/angular/angular-route'],
 		text: '../bower_components/requirejs-text/text'
 	},
 	shim: {
